@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <div ng-controller="categoryController">
+                <div class="row" style="margin-bottom: 30px;">
+                    <div class="col-md-3">
+                        <select ng-model="categorySelect" ng-click="filterProductByCategory(categorySelect)" class="form-control">
+                            <option ng-selected="true" value="">--Select all--</option>
+                            <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" ng-model="nameFilter" ng-keyup="filterProductByName(nameFilter)" class="form-control" placeholder="Search" aria-label="Search">
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#!products/new" class="btn btn-success"><i class="fas fa-plus-circle"></i> Add new</a>
+                    </div>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th colspan="3">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="product in products | filter:{category_id: categorySelect, name: nameFilter}">
+                        <td><img ng-src="{{ product.img }}" alt="" style="width: 50px; height: 50px;"></td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.quantity }}</td>
+                        <td>{{ product.price | currency}}</td>
+                        <td><a href="#!products/details/{{ product.id }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a></td>
+                        <td><a href="#!products/edit/{{ product.id }}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a></td>
+                        <td><a href="#!products/delete/{{ product.id }}" ng-click="deleteProduct(product.id)" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <div data-pagination="" data-num-pages="numOfPages()" data-current-page="curPage" data-max-size="maxSize"
+                data-boundary-links="true">
+            </div> -->
+        </div>
+        
+    </div>
+</div>

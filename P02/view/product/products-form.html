@@ -1,0 +1,55 @@
+<div class="container" >
+    <div class="row">
+        <div class="col-md-4">
+            <form ng-submit="createOrUpdateProduct()"> 
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" ng-model="product.name">
+                </div>
+                <!-- <div class="form-group">
+                  <label for="quantity">Quantity:</label>
+                  <input type="number" class="form-control" ng-model="product.quantity">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input type="number" class="form-control" ng-model="product.price">
+                </div> -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" class="form-control" ng-model="product.quantity">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="price">Price:</label>
+                        <input type="number" class="form-control" ng-model="product.price">
+                    </div>
+                </div>
+                <div class="form-group" ng-controller="categoryController">
+                    <label for="category">Category:</label>
+                    <select class="form-control" ng-model="product.category_id">
+                        <option ng-selected="true" value="{{ category.id }}" 
+                            ng-if="product.category_id == category.id">{{ category.name }}</option>
+                        <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>         
+                    </select>
+                </div>     
+                <div class="form-group">
+                    <label for="category">Description:</label>
+                    <textarea class="form-control" id="" rows="2" ng-model="product.description"></textarea>
+                </div>             
+                <div class="form-group">
+                    <label for="image">Image:</label>
+                    <input type="file" accept="image/png, image/jpeg" class="form-control-file" id="image"
+                        onchange="angular.element(this).scope().SelectFile(event)">
+                </div>
+                
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" value="Submit">
+                </div>
+                <a href="#!products">Back</a>
+            </form>
+        </div>
+        <div class="col-md-8">
+            <img ng-src="{{product.img}}" ng-show="product.img != null" alt="" style="width: 500px; height: 500px;"/>
+        </div>
+    </div>
+</div>

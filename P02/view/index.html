@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- <link href="../app/browser_components/font-awesome/fontawesome.min.css"> -->
+    <link href="../app/browser_components/bootstrap/bootstrap-combined.min.css">
+    <link href="../assets/css/index.css">
+
+    <!-- Font-awesome -->
+    <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="../app/browser_components/font-awesome/fontawesome.css">
+    <link rel="stylesheet" href="../app/browser_components/font-awesome/brands.css">
+    <link rel="stylesheet" href="../app/browser_components/font-awesome/solid.css">
+</head>
+<body>
+    <div>
+        <div ng-include="'share/header.html'"></div>
+        <div class="container-fluid">
+            <div class="row" style="background-color: #eee;">
+                <div class="col-md-2">
+                    <!-- <div class="list-group" id="list-tab" role="tablist">
+                        <a class="list-group-item list-group-item-action active" data-toggle="list" href="#!products" >Product</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list" href="#!category" role="tab" aria-controls="profile">Category</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list" href="#!supplier" role="tab" aria-controls="messages">Supplier</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list" href="#!employee" role="tab" aria-controls="settings">Employee</a>
+                    </div> -->
+                    <div ng-include="'share/slide-bar.html'"></div>
+                </div>
+                <div class="col-md-10" style="padding-top: 20px; background-color: white;">
+                    <div ng-controller="productsController">
+                        <div ng-view></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../app/browser_components/angular/angular.js"></script>
+    <script src="../app/browser_components/angular/angular.min.js"></script>
+    <script src="../app/browser_components/angular-router/angular-route.js"></script>
+    <script src="../app/controllers/ProductController.js"></script>
+    <script src="../app/controllers/CategoryController.js"></script>
+    <script src="../app/services/ProductService.js"></script>
+    <script src="../app/services/CategoryService.js"></script>
+    <script src="../app/browser_components/bootstrap/ui-bootstrap-tpls-0.3.0.min.js"></script>
+    <script src="../app/app.js"></script>
+</body>
+</html>
